@@ -18,8 +18,8 @@
 CGNS_DEBUG     = 0
 CGNS_LEGACY    = 0
 CGNS_SCOPING   = 0
-CGNS_64BIT     = 0
-CGNS_FORTRAN   = 1
+CGNS_64BIT     = 1
+CGNS_FORTRAN   = 0
 CGNS_PARALLEL  = 0
 CGNS_BASESCOPE = 0
 
@@ -28,8 +28,8 @@ CGNS_BASESCOPE = 0
 # CGNS_INCLUDEDIR - installation directory for CGNS headers
 #-----------------------------------------------------------------------
 
-CGNS_LIBDIR     = /usr/local/lib
-CGNS_INCLUDEDIR = /usr/local/include
+CGNS_LIBDIR     = /home/libaojun/桌面/cgnslib/lib
+CGNS_INCLUDEDIR = /home/libaojun/桌面/cgnslib/include
 
 #-----------------------------------------------------------------------
 # CGNS_CC      - C compiler used to build library
@@ -37,9 +37,9 @@ CGNS_INCLUDEDIR = /usr/local/include
 # CGNS_LDFLAGS - any additional linking flags
 #-----------------------------------------------------------------------
 
-CGNS_CC      = gcc
-CGNS_CFLAGS  = -g -O2  
-CGNS_LDFLAGS = 
+CGNS_CC      = /usr/bin/cc
+CGNS_CFLAGS  =  -std=gnu99 -O3 -DNDEBUG  
+CGNS_LDFLAGS =  
 
 #-----------------------------------------------------------------------
 # LIBCGNS - CGNS library name
@@ -55,7 +55,7 @@ CGNS_LIB = $(CGNS_LIBDIR)/libcgns.a
 #-----------------------------------------------------------------------
 
 CGNS_HDF5INC = 
-CGNS_HDF5LIB = 
+CGNS_HDF5LIB = hdf5-shared
 CGNS_SZIPLIB = 
 CGNS_ZLIBLIB = 
 
@@ -73,5 +73,5 @@ CGNS_MPILIBS =
 #-----------------------------------------------------------------------
 
 CGNS_LINKLIBS = $(CGNS_LIB) $(CGNS_HDF5LIB) $(CGNS_SZIPLIB) \
-	$(CGNS_ZLIBLIB) $(CGNS_MPILIBS) 
+	$(CGNS_ZLIBLIB) $(CGNS_MPILIBS) -lm
 
